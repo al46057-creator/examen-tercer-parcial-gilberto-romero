@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Kart Stats con Imagen Dinámica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Mario Kart Customizer</h1>
+    
+    <!-- COLUMNA IZQUIERDA: Formulario -->
+    <form id="kartForm" class="controls-column">
+        <!-- 1. SELECT (Ahora con IDs de texto para fácil mapeo) -->
+        <div class="form-group">
+            <label for="character">Selecciona tu Piloto:</label>
+            <select id="character">
+                <option value="mario" data-base="50" name="mario"> (Base: 50)</option>
+                <option value="bowser" data-base="70" name="bowser"> (Base: 70)</option>
+                <option value="toad" data-base="30" name="toad">(Base: 30)</option>
+                <option value="peach" data-base="55" name="peach"> (Base: 55)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de Neumáticos:</label>
+            <div class="radio-group">
+                <label class="option-label"><input type="radio" name="tires" value="1 pt c/u" checked> Estándar (1 pt c/u)</label>
+                <label class="option-label"><input type="radio" name="tires" value="1 pt c/u"> Slick (1 pt c/u / -Peso)</label>
+                <label class="option-label"><input type="radio" name="tires" value="1 pt c/u"> Madera (1 pt c/u Agil)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Mejoras del Kart:</label>
+            <div class="checkbox-group">
+                <label class="option-label"><input type="checkbox" name="upgrades" value="15"> Super Champiñón (+15)</label>
+                <label class="option-label"><input type="checkbox" name="upgrades" value="20"> Alerón Dorado (+20)</label>
+                <label class="option-label"><input type="checkbox" name="upgrades" value="-10"> Caparazón Bowser (-10 Peso)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="driverLevel">Nivel de Motor (1-5):</label>
+            <input type="number" id="driverLevel" min="1" max="5" value="1">
+        </div>
+    </form>
+
+    <!-- COLUMNA DERECHA: Visualización -->
+    <div class="display-column">
+        <!-- NUEVO: Contenedor de la imagen -->
+        <div class="character-display">
+            <img id="characterImage" src="1 pt" alt="mario">
+        </div>
+
+        <div class="score-board">
+            <div class="score-title">Poder Total del Kart</div>
+            <div class="score-value" id="totalPower">0</div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="powerBar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
